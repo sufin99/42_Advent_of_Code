@@ -1,4 +1,4 @@
-# Creo una función para leer el archivo .txt
+# Creo una función para leer el archivo .txt.
 def archivo_leer(filename):	
 	with open(filename, 'r') as file:
 		matriz = []
@@ -17,11 +17,11 @@ def horizontal(matriz, palabra):
 	len_palabra = len(palabra)
 	# Creo un bucle for para iterar sobre cada fila i de la matriz.
 	for i in range(n):
-		# Creo otro bucle for para iterar sobre cada columna j de la matriz hasta (m - len_palabra + 1) ***********
-		# para evitar desbordamientos
+		# Creo otro bucle for para iterar sobre cada columna j de la matriz hasta (m - len_palabra + 1)
+		# para evitar desbordamientos.
 		for j in range(m - len_palabra + 1):
 			# Uso all() para verificar si la palabra coincide horizontalmente. El segundo if es para buscar la
-			# palabra en el lado contrario
+			# palabra en el lado contrario.
 			if all(matriz[i][j + k] == palabra[k] for k in range(len_palabra)):
 				count += 1
 			if all(matriz[i][j + k] == palabra[-k-1] for k in range(len_palabra)):
@@ -34,12 +34,12 @@ def vertical (matriz, palabra):
 	n = len(matriz) # Numero de filas.
 	m = len(matriz[0]) # Numero de columnas.
 	len_palabra = len(palabra)
-	# Creo un bucle for para iterar sobre cada fila, hasta (n - len_palabra + 1) para evitar desbordamientos
+	# Creo un bucle for para iterar sobre cada fila, hasta (n - len_palabra + 1) para evitar desbordamientos.
 	for i in range(n - len_palabra + 1):
 		# Creo otro bucle for para iterar sobre cada columna j.
 		for j in range(m):
 			# Uso all() para verificar si la palabra coincide verticalmente. El segundo if es para buscar la
-			# palabra en el lado contrario
+			# palabra en el lado contrario.
 			if all(matriz[i + k][j] == palabra[k] for k in range(len_palabra)):
 				count += 1
 			if all(matriz[i + k][j] == palabra[-k-1] for k in range(len_palabra)):
@@ -52,10 +52,10 @@ def diagonal(matriz, palabra):
 	n = len(matriz)
 	m = len(matriz[0])
 	len_palabra = len(palabra)
-	# Creo un bucle for para iterar sobre cada fila, hasta (n - len_palabra + 1) para evitar desbordamientos
+	# Creo un bucle for para iterar sobre cada fila, hasta (n - len_palabra + 1) para evitar desbordamientos.
 	for i in range(n - len_palabra + 1):
 		# Creo otro bucle for para iterar sobre cada columna j de la matriz hasta (m - len_palabra + 1)
-		# para evitar desbordamientos
+		# para evitar desbordamientos.
 		for j in range(m - len_palabra + 1):
 			if all(matriz[i + k][j + k] == palabra[k] for k in range(len_palabra)):
 				count += 1
@@ -67,7 +67,7 @@ def diagonal(matriz, palabra):
 				count += 1
 	return (count)
 
-# Creo una función para contar las veces que encuentro la palabra
+# Creo una función para contar las veces que encuentro la palabra.
 def conteo_palabra(matriz, palabra):
 	total = 0
 	total += horizontal(matriz, palabra)
