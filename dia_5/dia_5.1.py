@@ -9,10 +9,10 @@ def parse_rules(rules):
     # Creo un bucle for para saltarme el salto de línea y añadir los números a int saltandome '|'.
 	# Voy añadiendo y al conjunto de x en el diccionario
     for rule in rules.split('\n'):
-        if rule.strip():
+        if (rule.strip()):
             before, after = map(int, rule.split('|'))
             order_rules[after].add(before)
-    return order_rules
+    return (order_rules)
 
 # Creo una función para ver si una actualización está en el orden correcto según las reglas.
 def is_order_correct(update, rules):
@@ -21,15 +21,15 @@ def is_order_correct(update, rules):
     # Creo un bucle for para iterar sobre cada par en las reglas. Si el indicde de before es mayor que after
 	# retorna False porque tiene que ir antes.
     for after, befores in rules.items():
-        if after in index_map:
+        if (after in index_map):
             for before in befores:
-                if before in index_map and index_map[before] > index_map[after]:
-                    return False
-    return True
+                if (before in index_map and index_map[before] > index_map[after]):
+                    return (False)
+    return (True)
 
 # Creo una función para encontrar el número que está en la mitad de la actualización.
 def find_middle_page(update):
-    return update[len(update) // 2]
+    return (update[len(update) // 2])
 
 # Leo las reglas.
 with open('acertijo5_reglas.txt', 'r') as file:
@@ -49,7 +49,7 @@ updates_input = [list(map(int, update.strip().split(','))) for update in updates
 correct_updates = []
 # Creo un bucle for para verificar las actualizaciones correctas e ir guardandonlas.
 for update in updates_input:
-    if is_order_correct(update, rules):
+    if (is_order_correct(update, rules)):
         correct_updates.append(update)
 
 # Llamo a la función para encontrar el número de en medio de las actualizaciones e ir guardándolas.

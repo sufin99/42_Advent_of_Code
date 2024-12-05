@@ -31,13 +31,13 @@ def diagonal(matriz, palabra):
 		# para evitar desbordamientos.
 		for j in range(m - len_palabra + 1):
 			# En cada if voy guardando las coordenadas de A en set1(diagonal de izquierda a derecha, y del reves tambien) y en set2(diagonal de derecha a izquierda, y del reves tambien). 
-			if all(matriz[i + k][j + k] == palabra[k] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + k] == palabra[k] for k in range(len_palabra))):
 				set1.append((i + 1, j + 1))
-			if all(matriz[i + k][j + k] == palabra[-k-1] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + k] == palabra[-k-1] for k in range(len_palabra))):
 				set1.append((i + 1, j + 1))
-			if all(matriz[i + k][j + len_palabra - k - 1] == palabra[k] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + len_palabra - k - 1] == palabra[k] for k in range(len_palabra))):
 				set2.append((i + 1, j + 1))
-			if all(matriz[i + k][j + len_palabra - k - 1] == palabra[-k-1] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + len_palabra - k - 1] == palabra[-k-1] for k in range(len_palabra))):
 				set2.append((i + 1, j + 1))
 	# Guardo las veces que coincide las coordenadas de A entre los 2 sets, que es sinónimo que salen count veces el X-MAS.
 	count = comp_sets(set1, set2)

@@ -22,9 +22,9 @@ def horizontal(matriz, palabra):
 		for j in range(m - len_palabra + 1):
 			# Uso all() para verificar si la palabra coincide horizontalmente. El segundo if es para buscar la
 			# palabra en el lado contrario.
-			if all(matriz[i][j + k] == palabra[k] for k in range(len_palabra)):
+			if (all(matriz[i][j + k] == palabra[k] for k in range(len_palabra))):
 				count += 1
-			if all(matriz[i][j + k] == palabra[-k-1] for k in range(len_palabra)):
+			if (all(matriz[i][j + k] == palabra[-k-1] for k in range(len_palabra))):
 				count += 1
 	return (count)
 
@@ -40,9 +40,9 @@ def vertical (matriz, palabra):
 		for j in range(m):
 			# Uso all() para verificar si la palabra coincide verticalmente. El segundo if es para buscar la
 			# palabra en el lado contrario.
-			if all(matriz[i + k][j] == palabra[k] for k in range(len_palabra)):
+			if (all(matriz[i + k][j] == palabra[k] for k in range(len_palabra))):
 				count += 1
-			if all(matriz[i + k][j] == palabra[-k-1] for k in range(len_palabra)):
+			if (all(matriz[i + k][j] == palabra[-k-1] for k in range(len_palabra))):
 				count += 1
 	return (count)
 
@@ -57,13 +57,13 @@ def diagonal(matriz, palabra):
 		# Creo otro bucle for para iterar sobre cada columna j de la matriz hasta (m - len_palabra + 1)
 		# para evitar desbordamientos.
 		for j in range(m - len_palabra + 1):
-			if all(matriz[i + k][j + k] == palabra[k] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + k] == palabra[k] for k in range(len_palabra))):
 				count += 1
-			if all(matriz[i + k][j + k] == palabra[-k-1] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + k] == palabra[-k-1] for k in range(len_palabra))):
 				count += 1
-			if all(matriz[i + k][j + len_palabra - k - 1] == palabra[k] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + len_palabra - k - 1] == palabra[k] for k in range(len_palabra))):
 				count += 1
-			if all(matriz[i + k][j + len_palabra - k - 1] == palabra[-k-1] for k in range(len_palabra)):
+			if (all(matriz[i + k][j + len_palabra - k - 1] == palabra[-k-1] for k in range(len_palabra))):
 				count += 1
 	return (count)
 
